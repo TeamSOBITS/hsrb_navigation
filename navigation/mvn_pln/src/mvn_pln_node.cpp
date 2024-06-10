@@ -116,7 +116,7 @@ int main(int argc, char** argv)
     ros::NodeHandle n;
     tf::TransformListener listener;
     
-    float proximity_criterion = 2.0;
+    float proximity_criterion = 1.3;
     if(ros::param::has("~patience"))
         ros::param::get("~patience", patience);
     if(ros::param::has("~proximity_criterion"))

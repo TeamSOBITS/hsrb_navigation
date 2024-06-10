@@ -1,0 +1,3 @@
+<launch>
+    <rosparam command="load" file="$(find navigation_start)/map/map_location.yaml"/>
+</launch>

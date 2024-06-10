@@ -1,0 +1,263 @@
+location_pose:
+    - {
+        location_name: "tall_table",
+        frame_id: "map",
+        translation_x: 1.2642099,
+        translation_y: 1.1183617,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: 0.7427777,
+        rotation_w: 0.6695381,
+    }
+
+    - {
+        location_name: "table_2",
+        frame_id: "map",
+        translation_x: 2.1145255,
+        translation_y: 1.3182127,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: 0.7085055,
+        rotation_w: 0.7057053,
+    }
+
+    - {
+        location_name: "table_1",
+        frame_id: "map",
+        translation_x: 2.7871357,
+        translation_y: 1.3242774,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: 0.6791992,
+        rotation_w: 0.7339540,
+    }
+
+    - {
+        location_name: "Between_room",
+        frame_id: "map",
+        translation_x: 3.7382064,
+        translation_y: 0.7799964,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: 0.7172200,
+        rotation_w: 0.6968468,
+    }
+
+    - {
+        location_name: "floor_3",
+        frame_id: "map",
+        translation_x: 1.3498109,
+        translation_y: 0.0455329,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: 0.7558247,
+        rotation_w: 0.6547741,
+    }
+
+    - {
+        location_name: "floor_2",
+        frame_id: "map",
+        translation_x: 2.3113631,
+        translation_y: 0.1412727,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: 0.7348363,
+        rotation_w: 0.6782445,
+    }
+
+    - {
+        location_name: "floor_1",
+        frame_id: "map",
+        translation_x: 2.9257616,
+        translation_y: 0.2409891,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: 0.7006521,
+        rotation_w: 0.7135031,
+    }
+
+    - {
+        location_name: "Bin_B",
+        frame_id: "map",
+        translation_x: 4.2050544,
+        translation_y: -0.0754413,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: -0.7276570,
+        rotation_w: 0.6859412,
+    }
+
+    - {
+        location_name: "Bin_A",
+        frame_id: "map",
+        translation_x: 3.6540274,
+        translation_y: -0.0825380,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: -0.7195364,
+        rotation_w: 0.6944547,
+    }
+
+    - {
+        location_name: "Tray_A",
+        frame_id: "map",
+        translation_x: 3.0572421,
+        translation_y: -0.1307755,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: -0.7326704,
+        rotation_w: 0.6805836,
+    }
+
+    - {
+        location_name: "Tray_B",
+        frame_id: "map",
+        translation_x: 2.7790299,
+        translation_y: -0.1225136,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: -0.7258852,
+        rotation_w: 0.6878159,
+    }
+
+    - {
+        location_name: "Container_B",
+        frame_id: "map",
+        translation_x: 2.5353463,
+        translation_y: -0.0568736,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: -0.7282716,
+        rotation_w: 0.6852886,
+    }
+
+    - {
+        location_name: "Container_A",
+        frame_id: "map",
+        translation_x: 2.2701736,
+        translation_y: -0.1099116,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: -0.7414189,
+        rotation_w: 0.6710425,
+    }
+
+    - {
+        location_name: "Drawer_top",
+        frame_id: "map",
+        translation_x: 1.4549689,
+        translation_y: 0.3819768,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: -0.7281354,
+        rotation_w: 0.6854334,
+    }
+
+    - {
+        location_name: "Drawer_left",
+        frame_id: "map",
+        translation_x: 1.4549689,
+        translation_y: 0.3819768,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: -0.7281354,
+        rotation_w: 0.6854334,
+    }
+
+    - {
+        location_name: "Shelf",
+        frame_id: "map",
+        translation_x: 3.2699053,
+        translation_y: 3.9113359,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: 0.6909202,
+        rotation_w: 0.7229310,
+    }
+
+    - {
+        location_name: "Chair_A",
+        frame_id: "map",
+        translation_x: 2.1873970,
+        translation_y: 4.1900353,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: 0.9999627,
+        rotation_w: 0.0086401,
+    }
+
+    - {
+        location_name: "Chair_B",
+        frame_id: "map",
+        translation_x: 2.1529133,
+        translation_y: 3.3493530,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: 0.9999399,
+        rotation_w: 0.0109651,
+    }
+
+    - {
+        location_name: "Flont_human",
+        frame_id: "map",
+        translation_x: 2.8483992,
+        translation_y: 3.7402144,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: 0.9996976,
+        rotation_w: -0.0245922,
+    }
+
+    - {
+        location_name: "First",
+        frame_id: "map",
+        translation_x: 1.3428103,
+        translation_y: 0.1728395,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: -0.0413652,
+        rotation_w: 0.9991441,
+    }
+
+    - {
+        location_name: "initial_pose",
+        frame_id: "map",
+        translation_x: 0.0056348,
+        translation_y: 0.0012605,
+        translation_z: 0.0000000,
+        rotation_x: 0.0000000,
+        rotation_y: 0.0000000,
+        rotation_z: -0.0037823,
+        rotation_w: 0.9999928,
+    }
+
+  pose: 
+    position: 
+      x: -0.5989411955530975
+      y: 0.4277748742191018
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.6839924264283997
+      w: 0.7294891093008792

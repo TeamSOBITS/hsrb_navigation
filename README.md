@@ -33,15 +33,17 @@
 </details>
 
 <!-- 概要 -->
-# 概要
+## 概要
 ナビゲーション時に首振りをすることで,ロボットの頭部にある深度センサを活用しながらナビゲーションできるパッケージです.
 
 [この論文](https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=trspy&paperid=1021&option_lang=eng)
 を実装したパッケージをSobits用にカスタマイズしたものです.
 
 現在以下のロボットに対応しています.
-- hsrb_robot
-- hsr_sim
+- [HSRB(実機)](https://github.com/TeamSOBITS/hsrb_robot)
+- [HSR(Sim)](https://github.com/TeamSOBITS/hsr_sim_common)
+- [SOBIT EDU
+](https://github.com/TeamSOBITS/sobit_edu)
 
 
 <p align="right">(<a href="#readme-top">上に戻る</a>)</p>
@@ -71,11 +73,11 @@
 
 2. 本レポジトリをcloneします．
     ```sh
-    git clone -b feature/multi_robot  https://github.com/TeamSOBITS/hsrb_navigation.git
+    git clone -b feature/multi_robot  https://github.com/TeamSOBITS/flex_nav.git
     ```
 3. レポジトリの中へ移動します．
     ```sh
-    cd hsrb_navigation/
+    cd flex_nav/
     ```
 4. パッケージをコンパイルします．
     ```sh
@@ -94,6 +96,11 @@
 ## 実行・操作方法
 実行する前に,[Sobits Navigation Stack](https://github.com/TeamSOBITS/sobits_navigation_stack)がインストールされているか確認してください.
 
+> [!NOTE]
+> SOBIT EDUで使用する場合，ロボット起動前に以下を実行してください．
+> 1. ``sobit_edu/sobit_edu_control/config/controllers.yaml``を開く
+> 2. ``joint_trajectory_controller``の中の``command_interfaces``の前に，``allow_partial_joints_goal: true``を追記する．
+
 1. ロボットを起動し,3次元点群が発行されているか確認する.
 2. [Sobits Navigation Stack](https://github.com/TeamSOBITS/sobits_navigation_stack)の`nav2.launch.py`の**robot_name**を使用するロボット名に書き換えて,以下のコマンドを実行する.
     ```sh
@@ -103,6 +110,7 @@
     ```sh
     ros2 launch flex_nav flex_nav.launch.py 
    ```
+
 <p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
 ## パラメータ
@@ -126,8 +134,7 @@
 <!-- マイルストーン -->
 ## マイルストーン
 - [ ] [SOBIT PRO
-](https://github.com/TeamSOBITS/sobit_pro), [SOBIT EDU
-](https://github.com/TeamSOBITS/sobit_edu), [SOBIT MINI
+](https://github.com/TeamSOBITS/sobit_pro), [SOBIT MINI
 ](https://github.com/TeamSOBITS/sobit_mini), [SOBIT LIGHT
 ](https://github.com/TeamSOBITS/sobit_light)への対応
 - [ ] 他の機能の追加
@@ -161,13 +168,13 @@ year		= {2012}
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/TeamSOBITS/hsrb_navigation.svg?style=for-the-badge
-[contributors-url]: https://github.com/TeamSOBITS/hsrb_navigation/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/TeamSOBITS/hsrb_navigation.svg?style=for-the-badge
-[forks-url]: https://github.com/TeamSOBITS/hsrb_navigation/network/members
-[stars-shield]: https://img.shields.io/github/stars/TeamSOBITS/hsrb_navigation.svg?style=for-the-badge
-[stars-url]: https://github.com/TeamSOBITS/hsrb_navigation/stargazers
-[issues-shield]: https://img.shields.io/github/issues/TeamSOBITS/hsrb_navigation.svg?style=for-the-badge
-[issues-url]: https://github.com/TeamSOBITS/hsrb_navigation/issues
-[license-shield]: https://img.shields.io/github/license/TeamSOBITS/hsrb_navigation.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/TeamSOBITS/flex_nav.svg?style=for-the-badge
+[contributors-url]: https://github.com/TeamSOBITS/flex_nav/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/TeamSOBITS/flex_nav.svg?style=for-the-badge
+[forks-url]: https://github.com/TeamSOBITS/flex_nav/network/members
+[stars-shield]: https://img.shields.io/github/stars/TeamSOBITS/flex_nav.svg?style=for-the-badge
+[stars-url]: https://github.com/TeamSOBITS/flex_nav/stargazers
+[issues-shield]: https://img.shields.io/github/issues/TeamSOBITS/flex_nav.svg?style=for-the-badge
+[issues-url]: https://github.com/TeamSOBITS/flex_nav/issues
+[license-shield]: https://img.shields.io/github/license/TeamSOBITS/flex_nav.svg?style=for-the-badge
 [license-url]: LICENSE

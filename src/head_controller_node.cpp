@@ -40,8 +40,8 @@ public:
         RCLCPP_INFO(this->get_logger(), "min_tilt_limit: %f", min_tilt_limit_);
         RCLCPP_INFO(this->get_logger(), "tilt_angle_navigating: %f", tilt_angle_navigating_);
 
-        pub_hsr_head_gp_ = this->create_publisher<trajectory_msgs::msg::JointTrajectory>(
-            head_trajectory_topic_, 10);
+        pub_head_gp_ = this->create_publisher<trajectory_msgs::msg::JointTrajectory>(
+            head_trajectory_topic_, 1);
 
         sub_goal_pose_ = this->create_subscription<std_msgs::msg::Float64MultiArray>(
             "/hardware/head/goal_pose", 10, std::bind(&HeadControllerNode::headGoalPoseCallback, this, _1));
@@ -86,7 +86,7 @@ private:
         is_new_data_ = true;
         traj_.points[0].time_from_start = rclcpp::Duration::from_seconds(moving_time);
         
-        pub_hsr_head_gp_->publish(traj_);
+        pub_head_gp_->publish(traj_);
 
         rclcpp::sleep_for(std::chrono::seconds(static_cast<int>(moving_time)));
         
@@ -102,13 +102,13 @@ private:
             traj_.points[0].time_from_start = rclcpp::Duration::from_seconds(moving_time);
 
             if (is_new_data_) {
-                pub_hsr_head_gp_->publish(traj_);
+                pub_head_gp_->publish(traj_);
                 is_new_data_ = false;
             }
         }
     }
 
-    rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr pub_hsr_head_gp_;
+    rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr pub_head_gp_;
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr sub_goal_pose_;
     rclcpp::Subscription<action_msgs::msg::GoalStatusArray>::SharedPtr sub_nav_status_;
     trajectory_msgs::msg::JointTrajectory traj_;

@@ -6,7 +6,7 @@ head_controller_node:
   ros__parameters:
     head_trajectory_topic: "/hsrb/head_trajectory_controller/command"
     max_pan_limit: 1.74
-    max_tilt_limit: -3.141592
-    min_pan_limit: 0.47
+    min_pan_limit: -3.141592
+    max_tilt_limit: 0.47
     min_tilt_limit: -0.9
     tilt_angle_navigating: -0.9

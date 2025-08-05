@@ -5,8 +5,8 @@ head_angle_publisher_node:
 head_controller_node:
   ros__parameters:
     head_trajectory_topic: "/head_trajectory_controller/joint_trajectory"
-    max_pan_limit: 1.74
-    max_tilt_limit: -3.141592
-    min_pan_limit: 0.47
-    min_tilt_limit: -0.9
-    tilt_angle_navigating: -0.9
+    max_pan_limit: 0.0
+    min_pan_limit: 0.0
+    max_tilt_limit: 0.0
+    min_tilt_limit: 0.0
+    tilt_angle_navigating: 0.0

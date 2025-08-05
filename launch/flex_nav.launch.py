@@ -6,7 +6,7 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    package_dir = get_package_share_directory('nav2_head_controller')
+    package_dir = get_package_share_directory('flex_nav')
 
     declare_robot_name_cmd = DeclareLaunchArgument(
         'robot_name',
@@ -27,14 +27,14 @@ def generate_launch_description():
         declare_robot_name_cmd,
         
         Node(
-            package='nav2_head_controller',
+            package='flex_nav',
             executable='head_controller_node',
             name='head_controller_node',
             output='screen',
             parameters=[param_file_path]
         ),
         Node(
-            package='nav2_head_controller',
+            package='flex_nav',
             executable='head_angle_publisher_node',
             name='head_angle_publisher_node', 
             output='screen',

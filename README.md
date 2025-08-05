@@ -93,9 +93,9 @@
     ```sh
     ros2 launch sobits_nav nav2.launch.py 
     ```
-3. [nav2_head_controller.launch.py](nav2_head_controller/launch/nav2_head_controller.launch.py)の**robot_name**を使用するロボット名に書き換えて,以下のコマンドを実行する.
+3. [flex_nav.launch.py](launch/flex_nav.launch.py)の**robot_name**を使用するロボット名に書き換えて,以下のコマンドを実行する.
     ```sh
-    ros2 launch nav2_head_controller nav2_head_controller.launch.py 
+    ros2 launch flex_nav flex_nav.launch.py 
    ```
 <p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 

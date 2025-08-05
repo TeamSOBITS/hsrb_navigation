@@ -27,6 +27,8 @@
     <li><a href="#実行操作方法">実行・操作方法</a></li>
     <li><a href="#パラメータ">パラメータ</a></li>
     <li><a href="#マイルストーン">マイルストーン</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
+    <li><a href="#論文の著者">論文の著者</a></li>
   </ol>
 </details>
 
@@ -134,7 +136,7 @@
 
 <p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
-# 参考文献
+## 参考文献
 
 [1] 人間の追従機能の実装は、以下の修士論文に基づいています:
 
@@ -150,7 +152,7 @@ year		= {2012}
 
 <p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
-# 論文の著者
+### 論文の著者
 
 * **Marco Negrete** - [BioRobotics UNAM](https://biorobotics.fi-p.unam.mx/)
 * **Luis Contreras** - [AIBot](http://aibot.jp/)

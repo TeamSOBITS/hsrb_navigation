@@ -4,7 +4,9 @@ head_angle_publisher_node:
 
 head_controller_node:
   ros__parameters:
-    head_trajectory_topic: "/hsrb/head_trajectory_controller/command"
+    head_trajectory_topic: "/head_trajectory_controller/command"
+    head_pan_joint_name: "head_pan_joint"
+    head_tilt_joint_name: "head_tilt_joint"
     max_pan_limit: 1.74
     min_pan_limit: -3.141592
     max_tilt_limit: 0.47

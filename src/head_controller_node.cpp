@@ -3,6 +3,7 @@
 #include <trajectory_msgs/msg/joint_trajectory.hpp>
 #include <action_msgs/msg/goal_status_array.hpp>
 #include <cmath>
+#include <string> 
 
 using std::placeholders::_1;
 
@@ -13,6 +14,8 @@ public:
     : Node("head_controller_node"), is_new_data_(false), moving_time(1.5)
     {
         this->declare_parameter("head_trajectory_topic", "/hsrb/head_trajectory_controller/command");
+        this->declare_parameter("head_pan_joint_name", "head_pan_joint");
+        this->declare_parameter("head_tilt_joint_name", "head_tilt_joint");
         this->declare_parameter("max_pan_limit", 1.74);
         this->declare_parameter("min_pan_limit", -3.141592);
         this->declare_parameter("max_tilt_limit", 0.47);
@@ -20,6 +23,8 @@ public:
         this->declare_parameter("tilt_angle_navigating", -0.9);
 
         head_trajectory_topic_ = this->get_parameter("head_trajectory_topic").as_string();
+        head_pan_joint_ = this->get_parameter("head_pan_joint_name").as_string();
+        head_tilt_joint_ = this->get_parameter("head_tilt_joint_name").as_string();
         max_pan_limit_ = this->get_parameter("max_pan_limit").as_double();
         min_pan_limit_ = this->get_parameter("min_pan_limit").as_double();
         max_tilt_limit_ = this->get_parameter("max_tilt_limit").as_double();
@@ -27,6 +32,8 @@ public:
         tilt_angle_navigating_ = this->get_parameter("tilt_angle_navigating").as_double();
 
         RCLCPP_INFO(this->get_logger(), "head_trajectory_topic: %s", head_trajectory_topic_.c_str());
+        RCLCPP_INFO(this->get_logger(), "head_pan_joint: %s", head_pan_joint_.c_str());
+        RCLCPP_INFO(this->get_logger(), "head_tilt_joint: %s", head_tilt_joint_.c_str());
         RCLCPP_INFO(this->get_logger(), "max_pan_limit: %f", max_pan_limit_);
         RCLCPP_INFO(this->get_logger(), "min_pan_limit: %f", min_pan_limit_);
         RCLCPP_INFO(this->get_logger(), "max_tilt_limit: %f", max_tilt_limit_);
@@ -42,7 +49,7 @@ public:
             "/navigate_to_pose/_action/status", 10,
             std::bind(&HeadControllerNode::navStatusCallback, this, std::placeholders::_1));
 
-        traj_.joint_names = {"head_pan_joint", "head_tilt_joint"};
+        traj_.joint_names = {head_pan_joint_, head_tilt_joint_};
         traj_.points.resize(1);
         traj_.points[0].positions.resize(2, 0.0);
         traj_.points[0].velocities.resize(2, 0.1);
@@ -111,6 +118,8 @@ private:
     rclcpp::TimerBase::SharedPtr timer_;
     
     std::string head_trajectory_topic_;
+    std::string head_pan_joint_; 
+    std::string head_tilt_joint_; 
     double max_pan_limit_;
     double min_pan_limit_;
     double max_tilt_limit_;

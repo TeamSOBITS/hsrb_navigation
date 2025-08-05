@@ -6,7 +6,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![License][license-shield]][license-url]
+<!-- [![License][license-shield]][license-url] -->
 
 # hsrb_navigation
 
@@ -25,6 +25,7 @@
       </ul>
     </li>
     <li><a href="#実行操作方法">実行・操作方法</a></li>
+    <li><a href="#パラメータ">パラメータ</a></li>
     <li><a href="#マイルストーン">マイルストーン</a></li>
   </ol>
 </details>
@@ -32,6 +33,9 @@
 <!-- 概要 -->
 # 概要
 ナビゲーション時に首振りをすることで,ロボットの頭部にある深度センサを活用しながらナビゲーションできるパッケージです.
+
+[この論文](https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=trspy&paperid=1021&option_lang=eng)
+を実装したパッケージをSobits用にカスタマイズしたものです.
 
 現在以下のロボットに対応しています.
 - hsrb_robot
@@ -99,9 +103,57 @@
    ```
 <p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
+## パラメータ
+以下は[param](param)でロボットごとに設定可能なパラメータです．
+
+| パラメータ名 | 説明 | 
+| --- | --- | 
+| base_link | ロボットのベースリンク名 |
+| head_trajectory_topic | 頭部の軌道を送信するためのROSトピック名 |
+| head_pan_joint_name | 頭部を左右に動かすパン関節名|
+| head_tilt_joint_name | 頭部を上下に動かすチルト関節名 |
+| max_pan_limit | 頭部のパン関節の最大角度（ラジアン）|
+| min_pan_limit | 頭部のパン関節の最小角度（ラジアン）|
+| max_tilt_limit |頭部のチルト関節の最大角度（ラジアン） |
+| min_tilt_limit | 頭部のチルト関節の最小角度（ラジアン）|
+| tilt_angle_navigating | ロボットが移動中に頭部を固定する際のチルト角度（ラジアン）|
+
+<p align="right">(<a href="#readme-top">上に戻る</a>)</p>
+
+
 <!-- マイルストーン -->
 ## マイルストーン
+- [ ] [SOBIT PRO
+](https://github.com/TeamSOBITS/sobit_pro), [SOBIT EDU
+](https://github.com/TeamSOBITS/sobit_edu), [SOBIT MINI
+](https://github.com/TeamSOBITS/sobit_mini), [SOBIT LIGHT
+](https://github.com/TeamSOBITS/sobit_light)への対応
+- [ ] 他の機能の追加
+
 現時点のバグや新規機能の依頼を確認するためにIssueページ をご覧ください．
+
+<p align="right">(<a href="#readme-top">上に戻る</a>)</p>
+
+# 参考文献
+
+[1] 人間の追従機能の実装は、以下の修士論文に基づいています:
+
+```
+@article{becerra:2012,
+author 		= {Marco Becerra-Pedraza and Jesus Savage},
+title 		= {{Sistema de seguimiento de personas para un robot movil de servicio}},
+journal		= {{UNAM}},
+year		= {2012}
+}
+```
+この論文は、こちらの[link](https://web.siia.unam.mx/siia-publico/v/include/modulo_productos/tesis.php?id=858286)からダウンロードできます（「URL: Ver Tesis」をクリックしてください）．
+
+<p align="right">(<a href="#readme-top">上に戻る</a>)</p>
+
+# 論文の著者
+
+* **Marco Negrete** - [BioRobotics UNAM](https://biorobotics.fi-p.unam.mx/)
+* **Luis Contreras** - [AIBot](http://aibot.jp/)
 
 <p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
@@ -117,24 +169,3 @@
 [issues-url]: https://github.com/TeamSOBITS/hsrb_navigation/issues
 [license-shield]: https://img.shields.io/github/license/TeamSOBITS/hsrb_navigation.svg?style=for-the-badge
 [license-url]: LICENSE
-
-
-# References
-
-[1] The human follower implementation is based on this master thesis work:
-
-```
-@article{becerra:2012,
-author 		= {Marco Becerra-Pedraza and Jesus Savage},
-title 		= {{Sistema de seguimiento de personas para un robot movil de servicio}},
-journal		= {{UNAM}},
-year		= {2012}
-}
-```
-
-You can download it at the following [link](https://web.siia.unam.mx/siia-publico/v/include/modulo_productos/tesis.php?id=858286) (click on *URL: Ver Tesis*).
-
-# Authors
-
-* **Marco Negrete** - [BioRobotics UNAM](https://biorobotics.fi-p.unam.mx/)
-* **Luis Contreras** - [AIBot](http://aibot.jp/)

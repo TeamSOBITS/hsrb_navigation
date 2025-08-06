@@ -39,11 +39,31 @@
 [この論文](https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=trspy&paperid=1021&option_lang=eng)
 を実装したパッケージをSobits用にカスタマイズしたものです.
 
+```sh
+@article{negrete:2018,
+author 		= {Marco Negrete and Jesus Savage and Luis Contreras},
+title 		= {{A Motion-Planning System for a Domestic Service Robot}},
+journal		= {{SPIIRAS Proceedings}},
+volume		= {60},
+number		= {5},
+pages		= {5--38},
+year		= {2018}
+}
+```
+
+- 論文の著者
+  * **Marco Negrete** - [BioRobotics UNAM](https://biorobotics.fi-p.unam.mx/)
+  * **Luis Contreras** - [AIBot](http://aibot.jp/)
+
+
+
 現在以下のロボットに対応しています.
-- [HSRB(実機)](https://github.com/TeamSOBITS/hsrb_robot)
-- [HSR(Sim)](https://github.com/TeamSOBITS/hsr_sim_common)
+- [HSRB (実機)](https://github.com/TeamSOBITS/hsrb_robot)
+- [HSR (Sim)](https://github.com/TeamSOBITS/hsr_sim_common)
 - [SOBIT EDU
 ](https://github.com/TeamSOBITS/sobit_edu)
+[SOBIT MINI
+](https://github.com/TeamSOBITS/sobit_mini)
 
 
 <p align="right">(<a href="#readme-top">上に戻る</a>)</p>
@@ -97,7 +117,7 @@
 実行する前に,[Sobits Navigation Stack](https://github.com/TeamSOBITS/sobits_navigation_stack)がインストールされているか確認してください.
 
 > [!NOTE]
-> SOBIT EDUで使用する場合，ロボット起動前に以下を実行してください．
+> SOBIT EDUとMINIで使用する場合，ロボット起動前に以下を実行してください．
 > 1. ``sobit_edu/sobit_edu_control/config/controllers.yaml``を開く
 > 2. ``joint_trajectory_controller``の中の``command_interfaces``の前に，``allow_partial_joints_goal: true``を追記する．
 
@@ -134,8 +154,7 @@
 <!-- マイルストーン -->
 ## マイルストーン
 - [ ] [SOBIT PRO
-](https://github.com/TeamSOBITS/sobit_pro), [SOBIT MINI
-](https://github.com/TeamSOBITS/sobit_mini), [SOBIT LIGHT
+](https://github.com/TeamSOBITS/sobit_pro), [SOBIT LIGHT
 ](https://github.com/TeamSOBITS/sobit_light)への対応
 - [ ] 他の機能の追加
 
@@ -159,12 +178,6 @@ year		= {2012}
 
 <p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
-### 論文の著者
-
-* **Marco Negrete** - [BioRobotics UNAM](https://biorobotics.fi-p.unam.mx/)
-* **Luis Contreras** - [AIBot](http://aibot.jp/)
-
-<p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

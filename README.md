@@ -61,9 +61,11 @@ year		= {2018}
 - [HSRB (実機)](https://github.com/TeamSOBITS/hsrb_robot)
 - [HSR (Sim)](https://github.com/TeamSOBITS/hsr_sim_common)
 - [SOBIT EDU
-](https://github.com/TeamSOBITS/sobit_edu)
+](https://github.com/TeamSOBITS/sobit_edu),
 [SOBIT MINI
-](https://github.com/TeamSOBITS/sobit_mini)
+](https://github.com/TeamSOBITS/sobit_mini),
+[SOBIT PRO
+](https://github.com/TeamSOBITS/sobit_pro)
 
 
 <p align="right">(<a href="#readme-top">上に戻る</a>)</p>
@@ -117,8 +119,8 @@ year		= {2018}
 実行する前に,[Sobits Navigation Stack](https://github.com/TeamSOBITS/sobits_navigation_stack)がインストールされているか確認してください.
 
 > [!NOTE]
-> SOBIT EDUとMINIで使用する場合，ロボット起動前に以下を実行してください．
-> 1. ``sobit_edu/sobit_edu_control/config/controllers.yaml``を開く
+> SOBIT EDU, MINI, PROで使用する場合，ロボット起動前に以下を実行してください．
+> 1. ``sobit_(ロボット名)/sobit_(ロボット名)_control/config/controllers.yaml``を開く
 > 2. ``joint_trajectory_controller``の中の``command_interfaces``の前に，``allow_partial_joints_goal: true``を追記する．
 
 1. ロボットを起動し,3次元点群が発行されているか確認する.
@@ -153,8 +155,7 @@ year		= {2018}
 
 <!-- マイルストーン -->
 ## マイルストーン
-- [ ] [SOBIT PRO
-](https://github.com/TeamSOBITS/sobit_pro), [SOBIT LIGHT
+- [ ] [SOBIT LIGHT
 ](https://github.com/TeamSOBITS/sobit_light)への対応
 - [ ] 他の機能の追加
 

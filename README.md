@@ -28,7 +28,6 @@
     <li><a href="#パラメータ">パラメータ</a></li>
     <li><a href="#マイルストーン">マイルストーン</a></li>
     <li><a href="#参考文献">参考文献</a></li>
-    <li><a href="#論文の著者">論文の著者</a></li>
   </ol>
 </details>
 
@@ -95,7 +94,7 @@ year		= {2018}
 
 2. 本レポジトリをcloneします．
     ```sh
-    git clone -b feature/multi_robot  https://github.com/TeamSOBITS/flex_nav.git
+    git clone -b humble-devel https://github.com/TeamSOBITS/flex_nav.git
     ```
 3. レポジトリの中へ移動します．
     ```sh

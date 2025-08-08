@@ -1,14 +1,14 @@
 head_angle_publisher_node:
   ros__parameters:
-    base_link: "base_footprint"
+    base_link: "sobit_pro/base_footprint"
 
 head_controller_node:
   ros__parameters:
-    head_trajectory_topic: "/hsrb/head_trajectory_controller/command"
+    head_trajectory_topic: "/sobit_pro/joint_trajectory_controller/joint_trajectory"
     head_pan_joint_name: "head_pan_joint"
     head_tilt_joint_name: "head_tilt_joint"
-    max_pan_limit: 0.0
-    min_pan_limit: 0.0
-    max_tilt_limit: 0.0
-    min_tilt_limit: 0.0
-    tilt_angle_navigating: 0.0
+    max_pan_limit: 0.773
+    min_pan_limit: -0.773
+    max_tilt_limit: 0.773
+    min_tilt_limit: -0.773
+    tilt_angle_navigating: -0.773

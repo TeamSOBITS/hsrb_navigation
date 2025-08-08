@@ -169,7 +169,7 @@ year		= {2012}
 }
 ```
 
-You can download this thesis from this [link]((https://web.siia.unam.mx/siia-publico/v/include/modulo_productos/tesis.php?id=858286) (click on "URL: Ver Tesis").
+You can download this thesis from this [link](https://web.siia.unam.mx/siia-publico/v/include/modulo_productos/tesis.php?id=858286) (click on "URL: Ver Tesis").
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

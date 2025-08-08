@@ -9,6 +9,6 @@ head_controller_node:
     head_tilt_joint_name: "head_camera_tilt_joint"
     max_pan_limit: 1.570
     min_pan_limit: -1.570
-    max_tilt_limit: -0.523
-    min_tilt_limit: 0.872
-    tilt_angle_navigating: 0.872
+    max_tilt_limit: 0.872
+    min_tilt_limit:  -0.523
+    tilt_angle_navigating: -0.872

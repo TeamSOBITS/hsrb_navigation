@@ -1,14 +1,45 @@
-# robot_navigation
+<a name="readme-top"></a>
 
-Service robots are intended to help humans in non-industrial environments such as houses or offices. To accomplish their goal, service robots must have several skills such as object recognition and manipulation, face detection and recognition, speech recognition and synthesis, task planning and, one of the most important, navigation in dynamic environments. This repository describes a fully implemented motion-planning system that comprehends from motion and path planning algorithms to spatial representation and behavior-based active navigation.
+[JA](README.md) | [EN](README.en.md)
 
-This paper can be consulted online for free at this [link](https://bit.ly/40YEcZR). The following video shows this system working at RoboCup where we have won the **Smoothest, Safest Navigation Award** in 2022 and 2023.
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+<!-- [![License][license-shield]][license-url] -->
 
-[![Watch the video](https://img.youtube.com/vi/s2g95Y9Me3c/hqdefault.jpg)](https://www.youtube.com/embed/s2g95Y9Me3c)
+# Flex Nav
 
-Please, if you use this material, don't forget to add the following reference:
+<!-- 目次 -->
+<details>
+  <summary>目次</summary>
+  <ol>
+    <li>
+      <a href="#概要">概要</a>
+    </li>
+    <li>
+      <a href="#セットアップ">セットアップ</a>
+      <ul>
+        <li><a href="#環境条件">環境条件</a></li>
+        <li><a href="#インストール方法">インストール方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#実行操作方法">実行・操作方法</a></li>
+    <li><a href="#パラメータ">パラメータ</a></li>
+    <li><a href="#マイルストーン">マイルストーン</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
+    <li><a href="#論文の著者">論文の著者</a></li>
+  </ol>
+</details>
 
-```
+<!-- 概要 -->
+## 概要
+ナビゲーション時に首振りをすることで,ロボットの頭部にある深度センサを活用しながらナビゲーションできるパッケージです.
+
+[この論文](https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=trspy&paperid=1021&option_lang=eng)
+を実装したパッケージをSobits用にカスタマイズしたものです.
+
+```sh
 @article{negrete:2018,
 author 		= {Marco Negrete and Jesus Savage and Luis Contreras},
 title 		= {{A Motion-Planning System for a Domestic Service Robot}},
@@ -20,141 +51,121 @@ year		= {2018}
 }
 ```
 
-# Setup
-
-1. Create an env of your choice.
-
-e.g.
-
-First, create a workspace:
-
-```
-cd ~
-mkdir -p nav_ws/src
-```
-
-Then, clone this repository into the src folder:
-
-```
-cd ~/nav_ws/src
-git clone https://github.com/ARTenshi/robot_navigation.git
-```
+- 論文の著者
+  * **Marco Negrete** - [BioRobotics UNAM](https://biorobotics.fi-p.unam.mx/)
+  * **Luis Contreras** - [AIBot](http://aibot.jp/)
 
 
-2. Checkout to the correct branch. Available branches are:
 
-* main - raw implementation for navigation considering a command velocity actuator and a laser scan sensor; additionally, an rgbd camera can be used.
+現在以下のロボットに対応しています.
+- [HSRB (実機)](https://github.com/TeamSOBITS/hsrb_robot)
+- [HSR (Sim)](https://github.com/TeamSOBITS/hsr_sim_common)
+- [SOBIT EDU
+](https://github.com/TeamSOBITS/sobit_edu),
+[SOBIT MINI
+](https://github.com/TeamSOBITS/sobit_mini),
+[SOBIT PRO
+](https://github.com/TeamSOBITS/sobit_pro)
 
-* follow_me - raw implementation of a human follower using la laser scan readings to track a person's legs [1].
 
-* hsr_robot - and example implementation of this repository in the HSR robot for the follow me and carry my luggage tasks.
+<p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
-e.g.
+<!-- セットアップ -->
+## セットアップ
+ここで，本レポジトリのセットアップ方法について説明します．
 
-```
-git checkout hsr_robot
-```
+<p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
-3. Build the project:
+### 環境条件
+まず，以下の環境を整えてから，次のインストール方法に進んでください．
+| System  | Version |
+| --- | --- |
+| Ubuntu | 22.04 (Jammy Jellyfish) |
+| ROS    | Humble Hawksbill |
+| Python | 3.10 |
 
-e.g 
+<p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
-```
-cd ~/nav_ws
-catkin_make
-```
 
-# Robot Navigation
+### インストール方法
+1. ROS2の`src`フォルダに移動します．
+    ```sh
+    cd ~/colcon_ws/src/
+    ```
 
-## Structure
+2. 本レポジトリをcloneします．
+    ```sh
+    git clone -b feature/multi_robot  https://github.com/TeamSOBITS/flex_nav.git
+    ```
+3. レポジトリの中へ移動します．
+    ```sh
+    cd flex_nav/
+    ```
+4. パッケージをコンパイルします．
+    ```sh
+    cd ~/colcon_ws/
+    ```
+    ```sh
+    colcon build --symlink-install
+    ```
+    ```sh
+    source ~/colcon_ws/install/setup.sh
+    ```
 
-**Topics**
+<p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
-TODO
+<!-- 実行・操作方法 -->
+## 実行・操作方法
+実行する前に,[Sobits Navigation Stack](https://github.com/TeamSOBITS/sobits_navigation_stack)がインストールされているか確認してください.
 
-**Services**
+> [!NOTE]
+> SOBIT EDU, MINI, PROで使用する場合，ロボット起動前に以下を実行してください．
+> 1. ``sobit_(ロボット名)/sobit_(ロボット名)_control/config/controllers.yaml``を開く
+> 2. ``joint_trajectory_controller``の中の``command_interfaces``の前に，``allow_partial_joints_goal: true``を追記する．
 
-TODO
+1. ロボットを起動し,3次元点群が発行されているか確認する.
+2. [Sobits Navigation Stack](https://github.com/TeamSOBITS/sobits_navigation_stack)の`nav2.launch.py`の**robot_name**を使用するロボット名に書き換えて,以下のコマンドを実行する.
+    ```sh
+    ros2 launch sobits_nav nav2.launch.py 
+    ```
+3. [flex_nav.launch.py](launch/flex_nav.launch.py)の**robot_name**を使用するロボット名に書き換えて,以下のコマンドを実行する.
+    ```sh
+    ros2 launch flex_nav flex_nav.launch.py 
+   ```
 
-## Initialization
+<p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
-### Prerequisites
+## パラメータ
+以下は[param](param)でロボットごとに設定可能なパラメータです．
 
-To use SLAM and navigation, you need to start a mapping system. 
+| パラメータ名 | 説明 | 
+| --- | --- | 
+| base_link | ロボットのベースリンク名 |
+| head_trajectory_topic | 頭部の軌道を送信するためのROSトピック名 |
+| head_pan_joint_name | 頭部を左右に動かすパン関節名|
+| head_tilt_joint_name | 頭部を上下に動かすチルト関節名 |
+| max_pan_limit | 頭部のパン関節の最大角度（ラジアン）|
+| min_pan_limit | 頭部のパン関節の最小角度（ラジアン）|
+| max_tilt_limit |頭部のチルト関節の最大角度（ラジアン） |
+| min_tilt_limit | 頭部のチルト関節の最小角度（ラジアン）|
+| tilt_angle_navigating | ロボットが移動中に頭部を固定する際のチルト角度（ラジアン）|
 
-We have followed the instructions for the *Cartographer ROS for the Toyota HSR* as per this [link](https://google-cartographer-ros-for-the-toyota-hsr.readthedocs.io/en/latest/)
+<p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
-### Follow me (HSR)
 
-Start the navigation:
+<!-- マイルストーン -->
+## マイルストーン
+- [ ] [SOBIT LIGHT
+](https://github.com/TeamSOBITS/sobit_light)への対応
+- [ ] 他の機能の追加
 
-```
-source ~/nav_ws/devel/setup.bash
-roslaunch navigation_start navigation.launch
-```
+現時点のバグや新規機能の依頼を確認するためにIssueページ をご覧ください．
 
-Start the task:
+<p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
-```
-source ~/nav_ws/devel/setup.bash
-roslaunch robot_tasks follow_me.launch
-```
+## 参考文献
 
-### Carry my luggage (HSR)
-
-In this task, the robot helps a person with her/his luggage in an unknown and unconstrained environment and should be able to return to the starting position. We focus on the navigation system here.
-
-Start the cartographer (assuming that the cartographer workspace is *cartographer_ws*):
-
-```
-source cartographer_ws/install_isolated/setup.bash
-roslaunch cartographer_toyota_hsr hsr_2d.launch
-```
-
-Start the navigation with a cartographer (i.e. using a dynamic map):
-
-```
-source ~/nav_ws/devel/setup.bash
-roslaunch navigation_start navigation_cartographer.launch
-```
-
-Start the task:
-
-```
-source ~/nav_ws/devel/setup.bash
-roslaunch robot_tasks carry_my_luggage.launch
-```
-
-### Notes
-
-Relevant parameters can be found in the navigation launch files in ```~/nav_ws/src/robot_navigation/navigation/navigation_start/launch```. In specific: 
-
-**Update your map names**
-
-```
-  <arg name="prohibition_map_file"  default="$(find navigation_start)/maps/prohibition_maps/room_512/map.yaml"/>
-  <arg name="static_map_file"  default="$(find navigation_start)/maps/maps/room_512/map.yaml"/>
-```
-
-For robot localisation, we use the original slam map from the ```map_server map_saver``` in ```maps/maps/```. Additionally, for path planning, we edit the previous map to add prohibited and or closed areas (e.g. considering a laser-scan-based mapping, we add the unmapped table area, or, to travel between two main doors, to avoid surrounding it from the outside, we add closed edges; we do not do this with the localisation map to avoid misslocalisation errors between the real sensor reading and an edited map.)
-
-**Enable/Disable potential fields**
-
-```
-<arg name="use_pot_fields" default="True"/>
-```
-For dynamic obstacle avoidance, we use rejective potential fields that can be enabled or disabled with this parameter. 
-
-Additionally:
-
-```
-<param name="pot_fields_k_rej" value="0.4"/>
-```
-this parameter indicates the obstacle's rejective force importance during navigation (too low means that the robot won't avoid obstacles and too hight means that the robot will avoid obstacles too far from it -- this two extreme cases might cause undesired behaviours).
-
-# References
-
-[1] The human follower implementation is based on this master thesis work:
+[1] 人間の追従機能の実装は、以下の修士論文に基づいています:
 
 ```
 @article{becerra:2012,
@@ -164,10 +175,20 @@ journal		= {{UNAM}},
 year		= {2012}
 }
 ```
+この論文は、こちらの[link](https://web.siia.unam.mx/siia-publico/v/include/modulo_productos/tesis.php?id=858286)からダウンロードできます（「URL: Ver Tesis」をクリックしてください）．
 
-You can download it at the following [link](https://web.siia.unam.mx/siia-publico/v/include/modulo_productos/tesis.php?id=858286) (click on *URL: Ver Tesis*).
+<p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
-# Authors
 
-* **Marco Negrete** - [BioRobotics UNAM](https://biorobotics.fi-p.unam.mx/)
-* **Luis Contreras** - [AIBot](http://aibot.jp/)
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/TeamSOBITS/flex_nav.svg?style=for-the-badge
+[contributors-url]: https://github.com/TeamSOBITS/flex_nav/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/TeamSOBITS/flex_nav.svg?style=for-the-badge
+[forks-url]: https://github.com/TeamSOBITS/flex_nav/network/members
+[stars-shield]: https://img.shields.io/github/stars/TeamSOBITS/flex_nav.svg?style=for-the-badge
+[stars-url]: https://github.com/TeamSOBITS/flex_nav/stargazers
+[issues-shield]: https://img.shields.io/github/issues/TeamSOBITS/flex_nav.svg?style=for-the-badge
+[issues-url]: https://github.com/TeamSOBITS/flex_nav/issues
+[license-shield]: https://img.shields.io/github/license/TeamSOBITS/flex_nav.svg?style=for-the-badge
+[license-url]: LICENSE

@@ -14,8 +14,8 @@ def generate_launch_description():
         # default_value="sobit_edu",
         # default_value="sobit_mini",
         # default_value="sobit_light",
-        default_value="hsr_sim",
-        # default_value="hsrb_robot",
+        # default_value="hsr_sim",
+        default_value="hsrb_robot",
         description='Choose your used robot name')
 
     robot_name_config = LaunchConfiguration('robot_name')

@@ -6,7 +6,7 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    package_dir = get_package_share_directory('flex_nav')
+    package_dir = get_package_share_directory('sobits_nav')
 
     declare_robot_name_cmd = DeclareLaunchArgument(
         'robot_name',
@@ -14,13 +14,13 @@ def generate_launch_description():
         # default_value="sobit_edu",
         # default_value="sobit_mini",
         # default_value="sobit_light",
-        # default_value="hsr_sim",
-        default_value="hsrb_robot",
+        default_value="hsr_sim",
+        # default_value="hsrb_robot",
         description='Choose your used robot name')
 
     robot_name_config = LaunchConfiguration('robot_name')
     param_file_path = PathJoinSubstitution([
-        package_dir, 'param', robot_name_config, 'config.yaml'
+        package_dir, 'param', robot_name_config, 'navigation_config.yaml'
     ])
 
     return LaunchDescription([

@@ -135,7 +135,7 @@ year		= {2018}
 <p align="right">(<a href="#readme-top">上に戻る</a>)</p>
 
 ## パラメータ
-以下は[param](param)でロボットごとに設定可能なパラメータです．
+以下は[Sobits Navigation Stackのparam](https://github.com/TeamSOBITS/sobits_navigation_stack/tree/humble-devel/sobits_nav/param)でロボットごとに設定可能なパラメータです．
 
 | パラメータ名 | 説明 | 
 | --- | --- | 
@@ -156,7 +156,6 @@ year		= {2018}
 ## マイルストーン
 - [ ] [SOBIT LIGHT
 ](https://github.com/TeamSOBITS/sobit_light)への対応
-- [ ] 他の機能の追加
 
 現時点のバグや新規機能の依頼を確認するためにIssueページ をご覧ください．
 

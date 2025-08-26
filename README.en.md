@@ -130,7 +130,7 @@ Before running, please confirm that [Sobits Navigation Stack](https://github.com
 
 ## Parameters
 
-The following are parameters that can be configured for each robot in [param](param).
+The following are parameters that can be configured for each robot in [Param of Sobits Navigation Stack](https://github.com/TeamSOBITS/sobits_navigation_stack/tree/humble-devel/sobits_nav/param).
 
 | Parameter Name | Description | 
 | --- | --- | 

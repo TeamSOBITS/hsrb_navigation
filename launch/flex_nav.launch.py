@@ -17,27 +17,36 @@ def generate_launch_description():
         default_value="hsr_sim",
         # default_value="hsrb_robot",
         description='Choose your used robot name')
+    declare_use_sim_time_cmd = DeclareLaunchArgument(
+        'use_sim_time',
+        default_value='false',
+        description='Use simulation (Gazebo) clock if true',
+    )
 
-    robot_name_config = LaunchConfiguration('robot_name')
+
+    robot_name = LaunchConfiguration('robot_name')
+    use_sim_time = LaunchConfiguration('use_sim_time')
+
     param_file_path = PathJoinSubstitution([
-        package_dir, 'param', robot_name_config, 'navigation_config.yaml'
+        package_dir, 'param', robot_name, 'navigation_config.yaml'
     ])
 
     return LaunchDescription([
         declare_robot_name_cmd,
+        declare_use_sim_time_cmd,
         
         Node(
             package='flex_nav',
             executable='head_controller_node',
             name='head_controller_node',
             output='screen',
-            parameters=[param_file_path]
+            parameters=[param_file_path, {'use_sim_time': use_sim_time}]
         ),
         Node(
             package='flex_nav',
             executable='head_angle_publisher_node',
             name='head_angle_publisher_node', 
             output='screen',
-            parameters=[param_file_path]
+            parameters=[param_file_path, {'use_sim_time': use_sim_time}]
         )
     ])

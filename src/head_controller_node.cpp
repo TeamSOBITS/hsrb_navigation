@@ -21,6 +21,7 @@ public:
         this->declare_parameter("max_tilt_limit", 0.47);
         this->declare_parameter("min_tilt_limit", -0.9);
         this->declare_parameter("tilt_angle_navigating", -0.9);
+        this->declare_parameter("head_rotation_type", "pan_tilt");
 
         head_trajectory_topic_ = this->get_parameter("head_trajectory_topic").as_string();
         head_pan_joint_ = this->get_parameter("head_pan_joint_name").as_string();
@@ -30,6 +31,9 @@ public:
         max_tilt_limit_ = this->get_parameter("max_tilt_limit").as_double();
         min_tilt_limit_ = this->get_parameter("min_tilt_limit").as_double();
         tilt_angle_navigating_ = this->get_parameter("tilt_angle_navigating").as_double();
+        head_rotation_type_ = this->get_parameter("head_rotation_type").as_string();
+
+        if ((head_rotation_type_ != "pan_tilt") && (head_rotation_type_ != "rpy")) return;
 
         RCLCPP_INFO(this->get_logger(), "head_trajectory_topic: %s", head_trajectory_topic_.c_str());
         RCLCPP_INFO(this->get_logger(), "head_pan_joint: %s", head_pan_joint_.c_str());
@@ -39,6 +43,7 @@ public:
         RCLCPP_INFO(this->get_logger(), "max_tilt_limit: %f", max_tilt_limit_);
         RCLCPP_INFO(this->get_logger(), "min_tilt_limit: %f", min_tilt_limit_);
         RCLCPP_INFO(this->get_logger(), "tilt_angle_navigating: %f", tilt_angle_navigating_);
+        RCLCPP_INFO(this->get_logger(), "head_rotation_type: %s", head_rotation_type_.c_str());
 
         pub_head_gp_ = this->create_publisher<trajectory_msgs::msg::JointTrajectory>(
             head_trajectory_topic_, 1);
@@ -62,8 +67,9 @@ public:
 private:
     void headGoalPoseCallback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
     {
+        double tilt_temp = (head_rotation_type_ == "pan_tilt") ? msg->data[1] : -msg->data[1];
         goal_pan_ = std::clamp(msg->data[0], min_pan_limit_, max_pan_limit_);
-        goal_tilt_ = std::clamp(msg->data[1], min_tilt_limit_, max_tilt_limit_);
+        goal_tilt_ = std::clamp(tilt_temp, min_tilt_limit_, max_tilt_limit_);
         is_new_data_ = true;
     }
 
@@ -125,6 +131,7 @@ private:
     double max_tilt_limit_;
     double min_tilt_limit_;
     double tilt_angle_navigating_;
+    std::string head_rotation_type_;
 };
 
 int main(int argc, char **argv)

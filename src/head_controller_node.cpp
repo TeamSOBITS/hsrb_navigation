@@ -57,8 +57,6 @@ public:
         traj_.joint_names = {head_pan_joint_, head_tilt_joint_};
         traj_.points.resize(1);
         traj_.points[0].positions.resize(2, 0.0);
-        traj_.points[0].velocities.resize(2, 0.1);
-        traj_.points[0].time_from_start = rclcpp::Duration::from_seconds(0.05);
 
         timer_ = this->create_wall_timer(
             std::chrono::milliseconds(33), std::bind(&HeadControllerNode::controlLoop, this));
@@ -86,7 +84,7 @@ private:
         moving_time = 1.5;
         goal_pan_ = 0.0;
         goal_tilt_ = (has_executing) ? tilt_angle_navigating_ : 0.0;
-        
+
         traj_.points[0].positions[0] = goal_pan_;
         traj_.points[0].positions[1] = goal_tilt_;
         is_new_data_ = true;
@@ -110,6 +108,7 @@ private:
             if (is_new_data_) {
                 pub_head_gp_->publish(traj_);
                 is_new_data_ = false;
+                rclcpp::sleep_for(std::chrono::seconds(static_cast<int>(moving_time)));
             }
         }
     }
